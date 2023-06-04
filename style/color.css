@@ -1,0 +1,7 @@
+:root {
+  --Moderate-cyan: hsl(176, 50%, 47%);
+  --Dark-cyan: hsl(176, 72%, 28%);
+  --Black: hsl(0, 0%, 0%);
+  --Dark-gray: hsl(0, 0%, 48%);
+  --Dark-gray-btn: hsla(0, 4%, 65%, 0.352);
+}

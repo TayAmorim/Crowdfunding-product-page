@@ -34,12 +34,12 @@ body {
 
 .presentation {
   position: absolute;
-  width: 800px;
+  width: 750px;
   top: 50%;
   left: 50%;
   margin-right: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: 20px 50px;
   border-radius: 8px;
   background-color: #ffff;
   -webkit-box-shadow: 3px 4px 23px 10px rgba(209, 209, 209, 0.46);
@@ -67,6 +67,7 @@ body {
 }
 
 .presentation-tags {
+  margin-block: 20px;
   display: flex;
   justify-content: space-between;
 }

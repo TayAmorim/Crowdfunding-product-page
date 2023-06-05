@@ -35,7 +35,7 @@ body {
 .content {
   width: 750px;
   position: absolute;
-  top: 80%;
+  top: 110%;
   left: 50%;
   margin-right: 50%;
   transform: translate(-50%, -50%);
@@ -168,7 +168,7 @@ input[type="range"]::-webkit-slider-thumb {
 
 .about {
   margin-top: 20px;
-  padding-top: 40px;
+  padding-block: 20px;
 }
 
 .text-about {
@@ -186,6 +186,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 1px solid var(--Dark-gray-btn);
   padding: 20px;
   border-radius: 4px;
+  margin-bottom: 10px;
 }
 
 .card-title {
@@ -215,4 +216,14 @@ input[type="range"]::-webkit-slider-thumb {
 .card-tags p span {
   font-weight: bold;
   font-size: 32px;
+}
+
+.disabled {
+  opacity: 0.5;
+}
+.disabled button {
+  background-color: var(--Dark-gray);
+}
+.disabled .card-title p {
+  color: var(--Dark-gray);
 }

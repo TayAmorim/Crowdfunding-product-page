@@ -76,6 +76,7 @@ body {
   justify-content: space-between;
 }
 
+.btn,
 .btn-tag {
   padding: 20px 40px;
   border: none;

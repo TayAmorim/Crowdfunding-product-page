@@ -59,7 +59,7 @@ body {
 
 .presentation-description {
   padding-block: 10px;
-  color: var(--Dark-gray);
+  color: var(--dark-gray);
 }
 
 .logo {
@@ -80,7 +80,7 @@ body {
   padding: 20px 40px;
   border: none;
   border-radius: 30px;
-  background: var(--Moderate-cyan);
+  background: var(--moderate-cyan);
   color: white;
   font-weight: bold;
 }
@@ -101,9 +101,9 @@ body {
   padding-left: 60px;
   padding-right: 30px;
   border-radius: 60px;
-  background-color: var(--Dark-gray-btn);
+  background-color: var(--dark-gray-btn);
   align-items: center;
-  color: var(--Dark-gray);
+  color: var(--dark-gray);
   font-weight: bold;
 }
 .support-information {
@@ -125,14 +125,14 @@ body {
 }
 
 .backed-information {
-  border-inline: 1px solid var(--Dark-gray-btn);
+  border-inline: 1px solid var(--dark-gray-btn);
   padding-inline: 60px;
 }
 
 .cards-information p {
   font-size: 14px;
   margin-top: 10px;
-  color: var(--Dark-gray);
+  color: var(--dark-gray);
 }
 
 input[type="range"] {
@@ -141,7 +141,7 @@ input[type="range"] {
   width: 100%;
   height: 10px;
   border-radius: 4px;
-  background-color: var(--Dark-gray-btn);
+  background-color: var(--dark-gray-btn);
 }
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -158,7 +158,7 @@ input[type="range"]::-webkit-slider-thumb {
   height: 15px;
   width: 15px;
   border-radius: 50%;
-  background: var(--Moderate-cyan);
+  background: var(--moderate-cyan);
   cursor: pointer;
-  box-shadow: 1px 1px 1px var(--Moderate-cyan), 0px 0px 1px var(--Moderate-cyan);
+  box-shadow: 1px 1px 1px var(--moderate-cyan), 0px 0px 1px var(--moderate-cyan);
 }

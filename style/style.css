@@ -60,9 +60,8 @@ body {
 .presentation-description {
   padding-block: 10px;
 
-
   color: var(--dark-gray);
-
+}
 
 .logo {
   position: absolute;
@@ -167,7 +166,6 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--moderate-cyan);
   cursor: pointer;
   box-shadow: 1px 1px 1px var(--moderate-cyan), 0px 0px 1px var(--moderate-cyan);
-
 }
 
 .about {
@@ -230,4 +228,4 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .disabled .card-title p {
   color: var(--Dark-gray);
-
+}

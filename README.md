@@ -1,5 +1,5 @@
 <h1 align="center">
-   <p>🚧🔨 Crowdfunding product page - Em construção  🚧🔨</p>
+   <p>🔨🚧 Crowdfunding product page - Em construção  🚧🔨</p>
 </h1>
 
 ![Design preview for the Crowdfunding product page coding challenge](./design/desktop-preview.jpg)

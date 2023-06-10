@@ -87,13 +87,19 @@ body {
   font-weight: bold;
 }
 
+.btn:hover,
+.btn-tag:hover {
+  background-color: var(--dark-cyan);
+  cursor: pointer;
+}
+
 .tag-imgs {
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.tag-imgs img {
+.tag-imgs svg {
   position: absolute;
   right: 135px;
 }
@@ -111,6 +117,19 @@ body {
   align-items: center;
   color: var(--dark-gray);
   font-weight: bold;
+}
+
+.tag-imgs-text.active {
+  color: var(--moderate-cyan);
+  background-color: lightcyan;
+}
+
+.active g circle {
+  fill: var(--dark-cyan);
+}
+
+.active g path {
+  fill: var(--white);
 }
 
 .about,
@@ -224,7 +243,11 @@ input[type="range"]::-webkit-slider-thumb {
   opacity: 0.5;
 }
 .disabled button {
-  background-color: var(--Dark-gray);
+  background-color: var(--dark-gray);
+}
+
+.disabled button:hover {
+  background-color: var(--dark-gray);
 }
 .disabled .card-title p {
   color: var(--Dark-gray);

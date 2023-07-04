@@ -305,13 +305,16 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: 1.25rem;
 }
 
+.wrapper-card {
+  padding: 1.25rem;
+  border: 1px solid var(--dark-gray-btn);
+  border-radius: 2px;
+}
+
 .card-modal {
   display: flex;
   gap: 10px;
   align-items: baseline;
-  padding: 1.25rem;
-  border: 1px solid var(--dark-gray-btn);
-  border-radius: 2px;
 }
 
 .info-description-modal {
@@ -385,4 +388,33 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .radio label input[type="radio"]:checked + span {
   color: #ffffff;
+}
+
+.show {
+  display: none !important;
+}
+
+.modal-select {
+  border-top: 1px solid var(--dark-gray-btn);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 10px 0;
+}
+
+.input-pledge {
+  max-width: 90px;
+  border: 1px solid var(--dark-cyan);
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.btn-modal-select {
+  border: none;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding: 10px 15px;
+  background: var(--dark-cyan);
+  color: white;
 }

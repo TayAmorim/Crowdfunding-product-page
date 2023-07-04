@@ -313,8 +313,9 @@ input[type="range"]::-webkit-slider-thumb {
 
 .card-modal {
   display: flex;
+  justify-content: start;
+  align-items: start;
   gap: 10px;
-  align-items: baseline;
 }
 
 .info-description-modal {
@@ -354,6 +355,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 55px;
   height: 20px;
   position: relative;
+  top: 5px;
 }
 
 .radio + .radio {
@@ -390,10 +392,6 @@ input[type="range"]::-webkit-slider-thumb {
   color: #ffffff;
 }
 
-.doNotShow {
-  display: none !important;
-}
-
 .modal-select {
   border-top: 1px solid var(--dark-gray-btn);
   margin-top: 20px;
@@ -417,4 +415,8 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 10px 15px;
   background: var(--dark-cyan);
   color: white;
+}
+
+.doNotShow {
+  display: none !important;
 }

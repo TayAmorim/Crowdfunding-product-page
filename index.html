@@ -42,8 +42,18 @@
         <div class="presentation-tags">
           <button class="btn-tag">Apoiar este projeto</button>
           <div class="tag-imgs">
-            <img src="./images/icon-bookmark.svg" alt="" />
-            <p class="tag-imgs-text">Bookmarked</p>
+            <svg
+              class="active icon"
+              width="56"
+              height="56"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g fill="none" fill-rule="evenodd">
+                <circle fill="#2F2F2F" cx="28" cy="28" r="28" />
+                <path fill="#B1B1B1" d="M23 19v18l5-5.058L33 37V19z" />
+              </g>
+            </svg>
+            <p class="tag-imgs-text active">Bookmarked</p>
           </div>
         </div>
       </section>
@@ -136,5 +146,84 @@
         </div>
       </section>
     </main>
+    <section class="wrapper-modal">
+      <div class="modal">
+        <img src="./images/icon-close-modal.svg" alt="icon-close-modal" />
+        <div class="modal-header">
+          <h3>Apoie este projeto</h3>
+          <p>
+            Quer nos ajudar a trazer o Mastercraft Bamboo Monitor Riser para o
+            mundo?
+          </p>
+        </div>
+        <div class="wrapper-cards-modal">
+          <div class="card-modal">
+            <input type="radio" />
+            <div class="card-without-reward">
+              <h4>Apoio sem recompensa</h4>
+              <p class="info-description-modal">
+                Escolha nos apoiar sem recompensa se você simplesmente acreditar
+                em nosso projeto. Como apoiador, você será assinado up para
+                receber atualizações de produtos por e-mail.
+              </p>
+            </div>
+          </div>
+          <div class="card-modal">
+            <input type="radio" />
+            <div class="card-info-modal">
+              <div class="card-support">
+                <h4>Bamboo Stand</h4>
+                <p class="pledge">Pague $R 25 ou mais</p>
+                <div class="card-days-remaining">
+                  <span>101</span>
+                  <p>restantes</p>
+                </div>
+              </div>
+              <p class="info-description-modal">
+                Você obtém um suporte ergonômico feito de bambu natural. Você
+                nos ajudou a lançar nossa campanha promocional e será adicionado
+                a uma lista especial de membros do Backer.
+              </p>
+            </div>
+          </div>
+          <div class="card-modal">
+            <input type="radio" />
+            <div class="card-info-modal">
+              <div class="card-support">
+                <h4>Black Edition Stand</h4>
+                <p class="pledge">Pague $R 75 ou mais</p>
+                <div class="card-days-remaining">
+                  <span>64</span>
+                  <p>restantes</p>
+                </div>
+              </div>
+              <p class="info-description-modal">
+                Você recebe um suporte de computador Black Special Edition e um
+                agradecimento pessoal. Você será adicionado à nossa lista de
+                membros do Backer. O envio está incluído.
+              </p>
+            </div>
+          </div>
+          <div class="card-modal disabled">
+            <input type="radio" />
+            <div class="card-info-modal">
+              <div class="card-support">
+                <h4>Mahogany Special Edition</h4>
+                <p>Pague $R 200 ou mais</p>
+                <div class="card-days-remaining">
+                  <span>0</span>
+                  <p>restantes</p>
+                </div>
+              </div>
+              <p class="info-description-modal">
+                Você ganha dois estandes de mogno da edição especial, uma
+                camiseta do Backer e um agradecimento pessoal. você será
+                adicionado à nossa lista de membros do Backer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>

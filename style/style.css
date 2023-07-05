@@ -421,3 +421,6 @@ input[type="range"]::-webkit-slider-thumb {
 .doNotShow {
   display: none !important;
 }
+
+/* @media only screen and (max-width: 767px) {
+} */

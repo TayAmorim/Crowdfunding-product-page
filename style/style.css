@@ -390,7 +390,7 @@ input[type="range"]::-webkit-slider-thumb {
   background-color: var(--moderate-cyan);
 }
 .radio label input[type="radio"]:checked + span {
-  color: #ffffff;
+  color: var(--white);
 }
 
 .modal-select {
@@ -415,7 +415,7 @@ input[type="range"]::-webkit-slider-thumb {
   margin-left: 10px;
   padding: 10px 15px;
   background: var(--dark-cyan);
-  color: white;
+  color: var(--white);
   transition: 0.2s;
 }
 

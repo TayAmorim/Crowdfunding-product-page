@@ -34,7 +34,7 @@ body {
 }
 
 .content {
-  width: 750px;
+  max-width: 750px;
   margin-top: -172px;
   margin-inline: auto;
   padding-bottom: 20px;
@@ -206,7 +206,7 @@ input[type="range"]::-webkit-slider-thumb {
   border: 1px solid var(--dark-gray-btn);
   padding: 20px;
   border-radius: 4px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .card-title {
@@ -445,5 +445,75 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 15px;
 }
 
-/* @media only screen and (max-width: 767px) {
-} */
+@media only screen and (max-width: 767px) {
+  .text {
+    font-size: 15px;
+  }
+  .contain-header {
+    padding-inline: 80px;
+    background-image: url("../images/image-hero-mobile.jpg");
+  }
+  .lista {
+    gap: 8px;
+    font-size: 12px;
+  }
+  .tag-imgs-text {
+    display: none;
+    visibility: hidden;
+  }
+
+  .content {
+    max-width: 360px;
+  }
+
+  .logo {
+    top: -10px;
+  }
+  .tag-imgs {
+    position: initial;
+  }
+  .icon {
+    position: initial;
+    right: 0;
+  }
+  .cards-information {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+  .backed-information::before,
+  .backed-information::after {
+    content: "";
+    display: block;
+    margin: 20px auto;
+    width: 80px;
+    height: 1px;
+    background: var(--dark-gray-btn);
+  }
+  .backed-information {
+    border-inline: none;
+  }
+  .about,
+  .support-information {
+    padding-inline: 20px;
+  }
+  .card-title {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .card-title h3 {
+    font-size: 16px;
+  }
+  .card-title p {
+    font-size: 13px;
+  }
+  .card-tags {
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  .btn,
+  .btn-tag {
+    padding: 20px;
+  }
+}

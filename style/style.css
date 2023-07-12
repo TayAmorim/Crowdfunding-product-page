@@ -272,7 +272,7 @@ input[type="range"]::-webkit-slider-thumb {
   padding: 1.25rem 1.875rem;
   position: relative;
 }
-.modal-img {
+.modal-closeImg {
   position: absolute;
   top: 1.25rem;
   right: 1.875rem;
@@ -281,7 +281,7 @@ input[type="range"]::-webkit-slider-thumb {
 .card-without-reward h4,
 .card-modal h4 {
   font-size: 1rem;
-  transition: color 0.3;
+  transition: color 0.3s;
 }
 
 .card-modal:hover h4 {
@@ -305,13 +305,17 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: 1.25rem;
 }
 
-.card-modal {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
+.wrapper-card {
   padding: 1.25rem;
   border: 1px solid var(--dark-gray-btn);
   border-radius: 2px;
+}
+
+.card-modal {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  gap: 10px;
 }
 
 .info-description-modal {
@@ -351,6 +355,7 @@ input[type="range"]::-webkit-slider-thumb {
   width: 55px;
   height: 20px;
   position: relative;
+  top: 5px;
 }
 
 .radio + .radio {
@@ -386,3 +391,37 @@ input[type="range"]::-webkit-slider-thumb {
 .radio label input[type="radio"]:checked + span {
   color: var(--white);
 }
+
+.modal-select {
+  border-top: 1px solid var(--dark-gray-btn);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0 10px 0;
+}
+
+.input-pledge {
+  max-width: 90px;
+  border: 1px solid var(--dark-cyan);
+  border-radius: 20px;
+  padding: 10px 15px;
+}
+
+.btn-modal-select {
+  border: none;
+  border-radius: 20px;
+  margin-left: 10px;
+  padding: 10px 15px;
+  background: var(--dark-cyan);
+  color: white;
+  transition: 0.2s;
+}
+
+.doNotShow {
+  display: none !important;
+  visibility: hidden;
+}
+
+/* @media only screen and (max-width: 767px) {
+} */

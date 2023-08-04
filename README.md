@@ -20,16 +20,14 @@ Este é um projeto de página de produto de crowdfunding, criado como um desafio
 
 Crowdfunding é uma forma inovadora de financiamento coletivo, onde um projeto, ideia ou produto é apresentado a uma comunidade de pessoas interessadas. Os apoiadores podem contribuir com diferentes quantias de dinheiro em troca de recompensas ou simplesmente para apoiar a causa ou projeto em questão.
 
-## Características
+## Funcionalidades
 
-Os usuários devem ser capazes de:
-
-- Visualização do layout ideal dependendo do tamanho da tela do dispositivo
-- Estados de foco para elementos interativos
-- Seleção de qual promessa fazer
-- Visualização de uma barra de progresso atualizada e o total de dinheiro arrecadado com base no total de promessas depois de confirmar uma promessa
-- Veja o aumento do número total de apoiadores em um após confirmar uma promessa
-- Alternar se o produto está ou não marcado
+- Layout responsivo: A página se adapta automaticamente ao tamanho da tela do dispositivo, garantindo uma visualização ideal em computadores, tablets e smartphones.
+- Estados de foco: Elementos interativos, como botões, apresentam estados de foco para melhorar a usabilidade e experiência do usuário.
+- Escolha de promessa: Os usuários podem selecionar qual promessa desejam apoiar, podendo visualizar as informações detalhadas de cada oferta.
+- Barra de progresso: Após confirmar uma promessa, a página exibirá uma barra de progresso atualizada, mostrando o total de dinheiro arrecadado com base no número total de promessas.
+- Contagem de apoiadores: O número total de apoiadores aumentará automaticamente após cada promessa confirmada.
+- Alternar marcação do produto: Os usuários podem alternar a marcação do produto para indicar se desejam receber atualizações ou não.
 
 ## Tecnologias
 

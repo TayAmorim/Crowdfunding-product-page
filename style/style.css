@@ -474,7 +474,7 @@ input[type="range"]::-webkit-slider-thumb {
   .header-itens {
     width: 330px;
     display: flex;
-    padding: 10px 0px;
+    padding: 20px 0;
     justify-content: space-between;
   }
 
@@ -483,10 +483,12 @@ input[type="range"]::-webkit-slider-thumb {
     visibility: initial;
     border-radius: 0.2rem;
     background: none;
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
     padding: 0px;
     display: flex;
+    flex-direction: column;
+    gap: 4px;
     align-items: center;
     justify-content: center;
     border: 1px solid transparent;
@@ -494,22 +496,29 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
   }
 
-  [data-menu="button"]::before {
-    content: "";
-    display: inline-block;
-    width: 1.2rem;
-    height: 2px;
-    border-radius: 2px;
+  [data-button] {
+    width: 20px;
+    height: 3px;
     background: var(--white);
-    box-shadow: 0 6px var(--white), 0 -6px var(--white);
-    transition: 0.2s;
-    transition: transform 0.3s;
   }
 
-  .js [data-menu="button"].active::before {
-    transform: rotate(90deg);
+  [data-menu="button"].active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
+  [data-menu="button"].active [data-button="trace-center"] {
+    display: none;
+  }
+
+  [data-menu="button"].active [data-button="trace-bottom"] {
+    transform: rotate(45deg);
+  }
+  [data-menu="button"].active [data-button="trace-top"] {
+    position: absolute;
+    transform: rotate(-45deg);
+  }
   .lista {
     display: none;
     background: var(--white);
@@ -518,7 +527,7 @@ input[type="range"]::-webkit-slider-thumb {
     width: 330px;
     border-radius: 8px;
     z-index: 200;
-    top: 6.2%;
+    top: 7%;
     left: 50%;
     margin-right: 50%;
     transform: translate(-50%, -50%);
@@ -530,6 +539,7 @@ input[type="range"]::-webkit-slider-thumb {
   .lista li {
     padding: 20px;
     font-size: 20px;
+    font-weight: bold;
   }
 
   .lista li:nth-child(2) {
@@ -540,6 +550,10 @@ input[type="range"]::-webkit-slider-thumb {
     visibility: visible;
     display: block;
     animation: show-right 0.3s forwards;
+  }
+
+  .presentation {
+    padding-inline: 40px;
   }
 
   .tag-imgs-text {

@@ -14,7 +14,11 @@
 
 ## O desafio
 
-Criação de uma página de crowdfunding.
+Este é um projeto de página de produto de crowdfunding, criado como um desafio para praticar habilidades de desenvolvimento web e design. O objetivo principal é replicar o design fornecido e tornar a página o mais próxima possível da aparência original.
+
+## O que é Crowdfunding?
+
+Crowdfunding é uma forma inovadora de financiamento coletivo, onde um projeto, ideia ou produto é apresentado a uma comunidade de pessoas interessadas. Os apoiadores podem contribuir com diferentes quantias de dinheiro em troca de recompensas ou simplesmente para apoiar a causa ou projeto em questão.
 
 ## Características
 

@@ -36,4 +36,12 @@ export default async function initInfoProduct() {
 
   rangeValue.setAttribute("value", valueRange);
   rangeValue.setAttribute("max", maxValueRange);
+
+  rangeValue.addEventListener("input", function () {
+    const percent =
+      ((rangeValue.value - rangeValue.min) /
+        (rangeValue.max - rangeValue.min)) *
+      100;
+    rangeValue.style.background = `linear-gradient(to right, #3cb4ac 0%, #3cb4ac ${percent}%, #ddd ${percent}%, #ddd 100%)`;
+  });
 }

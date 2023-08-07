@@ -6,9 +6,15 @@ const api = axios.create({
   },
 });
 
-const cardsInformation = document.querySelector('[data-information="values"]');
+const titlesInformation = document.querySelectorAll("[data-information-title]");
 
 export default async function initMain() {
   const response = await api.get(`/produto/1`);
-  console.log(cardsInformation);
+  const { meta_valor, valor_arrecadado } = response.data;
+
+  titlesInformation.forEach((title) => {
+    if (title.dataset.informationTitle === "values") {
+      title.innerText = `RS ${valor_arrecadado / 100}`;
+    }
+  });
 }

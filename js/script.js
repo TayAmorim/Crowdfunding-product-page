@@ -1,5 +1,5 @@
-import initMain from "./modules/main.js";
+import initInfoProduct from "./modules/product-info.js";
 import initMenumobile from "./modules/menu-mobile.js";
 
 initMenumobile();
-initMain();
+initInfoProduct();

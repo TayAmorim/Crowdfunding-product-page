@@ -2,7 +2,7 @@ import { api } from "./api.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
 const informationText = document.querySelector(".information-text");
-const remainingValue = document.querySelector(".remaining-value");
+const rangeValue = document.querySelector(".remaining-value");
 
 export default async function initInfoProduct() {
   const response = await api.get(`/produto/1`);
@@ -31,4 +31,9 @@ export default async function initInfoProduct() {
       title.innerText = ` ${dayRemaining}`;
     }
   });
+  const valueRange = valor_arrecadado / 100;
+  const maxValueRange = meta_valor / 100;
+
+  rangeValue.setAttribute("value", valueRange);
+  rangeValue.setAttribute("max", maxValueRange);
 }

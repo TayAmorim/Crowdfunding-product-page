@@ -145,8 +145,6 @@ body {
   margin: 0 auto;
   border-radius: 8px;
   background-color: var(--white);
-  -webkit-box-shadow: 3px 4px 23px 10px rgba(209, 209, 209, 0.46);
-  -moz-box-shadow: 3px 4px 23px 10px rgba(209, 209, 209, 0.46);
   box-shadow: 3px 4px 23px 10px rgba(209, 209, 209, 0.46);
 }
 

@@ -14,16 +14,25 @@
   </head>
   <body>
     <header class="contain-header">
-      <div>
-        <img src="./images/logo.svg" alt="logo " />
+      <div class="header-itens">
+        <div>
+          <img src="./images/logo.svg" alt="logo " />
+        </div>
+        <div>
+          <button data-menu="button" aria-expanded="false" aria-controls="menu">
+            <div data-button="trace-top"></div>
+            <div data-button="trace-center"></div>
+            <div data-button="trace-bottom"></div>
+          </button>
+          <nav class="menu-nav">
+            <ul class="lista" data-menu="list">
+              <li>Sobre</li>
+              <li>Discover</li>
+              <li>GetStart</li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <nav class="menu-nav">
-        <ul class="lista">
-          <li>Sobre</li>
-          <li>Discover</li>
-          <li>GetStart</li>
-        </ul>
-      </nav>
     </header>
     <main class="content">
       <section class="presentation">
@@ -163,18 +172,20 @@
         <div class="wrapper-cards-modal">
           <div class="wrapper-card">
             <div class="card-modal">
-              <div class="radio">
-                <label>
-                  <input
-                    id="withoutReward"
-                    type="radio"
-                    class="btn-pledges"
-                    name="pledges"
-                  />
-                </label>
+              <div class="card-group">
+                <div class="radio">
+                  <label>
+                    <input
+                      id="withoutReward"
+                      type="radio"
+                      class="btn-pledges"
+                      name="pledges"
+                    />
+                  </label>
+                </div>
+                <h4>Apoio sem recompensa</h4>
               </div>
               <div class="card-without-reward">
-                <h4>Apoio sem recompensa</h4>
                 <p class="info-description-modal">
                   Escolha nos apoiar sem recompensa se você simplesmente
                   acreditar em nosso projeto. Como apoiador, você será assinado
@@ -197,19 +208,21 @@
           </div>
           <div class="wrapper-card">
             <div class="card-modal">
-              <div class="radio">
-                <label>
-                  <input
-                    id="bamboo"
-                    type="radio"
-                    class="btn-pledges"
-                    name="pledges"
-                  />
-                </label>
-              </div>
               <div class="card-info-modal">
                 <div class="card-support">
-                  <h4>Bamboo Stand</h4>
+                  <div class="card-group">
+                    <div class="radio">
+                      <label>
+                        <input
+                          id="bamboo"
+                          type="radio"
+                          class="btn-pledges"
+                          name="pledges"
+                        />
+                      </label>
+                    </div>
+                    <h4>Bamboo Stand</h4>
+                  </div>
                   <p class="pledge">Pague $R 25 ou mais</p>
                   <div class="card-days-remaining">
                     <span>101</span>
@@ -238,19 +251,21 @@
           </div>
           <div class="wrapper-card">
             <div class="card-modal">
-              <div class="radio">
-                <label>
-                  <input
-                    id="black"
-                    type="radio"
-                    class="btn-pledges"
-                    name="pledges"
-                  />
-                </label>
-              </div>
               <div class="card-info-modal">
                 <div class="card-support">
-                  <h4>Black Edition Stand</h4>
+                  <div class="card-group">
+                    <div class="radio">
+                      <label>
+                        <input
+                          id="bamboo"
+                          type="radio"
+                          class="btn-pledges"
+                          name="pledges"
+                        />
+                      </label>
+                    </div>
+                    <h4>Black Edition Stand</h4>
+                  </div>
                   <p class="pledge">Pague $R 75 ou mais</p>
                   <div class="card-days-remaining">
                     <span>64</span>
@@ -268,7 +283,7 @@
               <p>Insira seu apoio</p>
               <div class="group-select-button">
                 <input
-                  name="pledge-black"
+                  name="pledge-bamboo"
                   class="input-pledge"
                   type="text"
                   placeholder="R$ "
@@ -279,15 +294,22 @@
           </div>
           <div class="wrapper-card">
             <div class="card-modal disabled">
-              <div class="radio">
-                <label>
-                  <input type="radio" class="btn-pledges" name="pledges" />
-                </label>
-              </div>
               <div class="card-info-modal">
                 <div class="card-support">
-                  <h4>Mahogany Special Edition</h4>
-                  <p>Pague $R 200 ou mais</p>
+                  <div class="card-group">
+                    <div class="radio">
+                      <label>
+                        <input
+                          id="bamboo"
+                          type="radio"
+                          class="btn-pledges"
+                          name="pledges"
+                        />
+                      </label>
+                    </div>
+                    <h4>Mahogany Special Edition</h4>
+                  </div>
+                  <p class="pledge">Pague $R 200 ou mais</p>
                   <div class="card-days-remaining">
                     <span>0</span>
                     <p>restantes</p>
@@ -298,6 +320,18 @@
                   camiseta do Backer e um agradecimento pessoal. você será
                   adicionado à nossa lista de membros do Backer.
                 </p>
+              </div>
+            </div>
+            <div class="modal-select doNotShow">
+              <p>Insira seu apoio</p>
+              <div class="group-select-button">
+                <input
+                  name="pledge-bamboo"
+                  class="input-pledge"
+                  type="text"
+                  placeholder="R$ "
+                />
+                <button class="btn-modal-select">Continuar</button>
               </div>
             </div>
           </div>
@@ -318,5 +352,6 @@
         <button class="btn btn-pledgeComplet">Entendi!</button>
       </div>
     </section>
+    <script type="module" src="./js/script.js"></script>
   </body>
 </html>

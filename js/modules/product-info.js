@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import initInfoPlans from "./plans-info.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
 const informationText = document.querySelector(".information-text");
@@ -58,6 +59,7 @@ export default async function initInfoProduct() {
       rangeValue.style.background = `linear-gradient(to right, ${moderateCyan} 0%, ${moderateCyan} ${percent}%, ${gray} ${percent}%, ${gray} 100%)`;
       rangeValue.setAttribute("value", percent * 1000);
     }
+    initInfoPlans();
   } catch (error) {
     return console.log(error?.message);
   }

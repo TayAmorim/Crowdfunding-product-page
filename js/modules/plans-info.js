@@ -10,9 +10,13 @@ export default async function initInfoPlans() {
       const nomePlan = plans[i].nome.split(" ");
       for (let card of cardsPlan) {
         if (nomePlan.includes(card.dataset.plan)) {
-          const span = card.querySelector("span");
+          const span = card.querySelector(".amount");
+          const spanPrice = card.querySelector(".price");
           span.innerText = plans[i].quantidade;
-          console.log(cardsPlan);
+          if (spanPrice) {
+            spanPrice.innerText = plans[i].valor_minimo;
+          }
+
           if (!plans[i].status) {
             card.classList.add("disabled");
           }

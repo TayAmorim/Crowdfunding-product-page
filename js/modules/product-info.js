@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import formattingPrice from "./formattingPrice.js";
 import initInfoPlans from "./plans-info.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
@@ -10,15 +11,6 @@ export default async function initInfoProduct() {
     const response = await api.get(`/produto/1`);
     const { meta_valor, valor_arrecadado, total_apoios, data_limite } =
       response.data || {};
-    function priceFormatting() {
-      const formatterValue = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-      });
-      const amountRaised = formatterValue.format(valor_arrecadado / 100);
-      const targetValue = formatterValue.format(meta_valor / 100);
-      return { amountRaised, targetValue };
-    }
 
     function nextDays() {
       const dayRemaining = dateFns.differenceInCalendarDays(
@@ -31,8 +23,8 @@ export default async function initInfoProduct() {
     function setTitleInformations() {
       titlesInformation.forEach((title) => {
         if (title.dataset.informationTitle === "values") {
-          title.innerText = ` ${priceFormatting().amountRaised}`;
-          informationText.innerText = `${priceFormatting().targetValue}`;
+          title.innerText = ` ${formattingPrice(valor_arrecadado)}`;
+          informationText.innerText = `${formattingPrice(meta_valor)}`;
         } else if (title.dataset.informationTitle === "backed") {
           title.innerText = ` ${total_apoios}`;
         } else {

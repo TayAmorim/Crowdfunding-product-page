@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import formattingPrice from "./formattingPrice.js";
 
 const cardsPlan = document.querySelectorAll("[data-plan]");
 
@@ -14,9 +15,9 @@ export default async function initInfoPlans() {
           const spanPrice = card.querySelector(".price");
           span.innerText = plans[i].quantidade;
           if (spanPrice) {
-            spanPrice.innerText = plans[i].valor_minimo;
+            const newPrice = formattingPrice(plans[i].valor_minimo);
+            spanPrice.innerText = newPrice;
           }
-
           if (!plans[i].status) {
             card.classList.add("disabled");
           }

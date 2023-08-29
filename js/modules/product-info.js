@@ -28,7 +28,7 @@ export default async function initInfoProduct() {
       return dayRemaining;
     }
 
-    function manipulationText() {
+    function setTitleInformations() {
       titlesInformation.forEach((title) => {
         if (title.dataset.informationTitle === "values") {
           title.innerText = ` ${priceFormatting().amountRaised}`;
@@ -40,7 +40,7 @@ export default async function initInfoProduct() {
         }
       });
     }
-    manipulationText();
+    setTitleInformations();
     inputRangeManipulation();
 
     function inputRangeManipulation() {

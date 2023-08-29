@@ -1,4 +1,4 @@
-export default function outsideClick(element, events, callback) {
+export default function onOutsideClick(element, events, callback) {
   const html = document.documentElement;
   const OUTSIDE = "data-outside";
   function handleOutsideClick(event) {

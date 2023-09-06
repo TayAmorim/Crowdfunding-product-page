@@ -43,7 +43,6 @@ export default function initModal() {
   function showModalDetails(name) {
     const modalDetailDiv = modalPlans.querySelector(`[data-plan=${name}]`);
     const modalDetail = modalDetailDiv.querySelector(".modal-select");
-
     btnPledges.forEach((pledge) => {
       if (pledge.dataset.id === name) {
         pledge.checked = true;
@@ -56,5 +55,21 @@ export default function initModal() {
         modalDetail.classList.remove("doNotShow");
       }
     });
+    gettingSupportValue(modalDetail);
+  }
+
+  function gettingSupportValue(element) {
+    const inputDetails = element.querySelector(".input-pledge");
+    const btnModalSelect = element.querySelector(".btn-modal-select");
+
+    inputDetails.addEventListener("input", formatCurrency);
+    inputDetails.value = "R$";
+
+    function formatCurrency({ target }) {
+      let value = target.value.replace(/\D/g, "");
+      value = (value / 100).toFixed(2).replace(".", ",");
+      value = "R$ " + value;
+      target.value = value;
+    }
   }
 }

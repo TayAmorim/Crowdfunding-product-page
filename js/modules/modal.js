@@ -14,18 +14,7 @@ export default function initModal() {
   );
 
   btnPledges.forEach((pledge) =>
-    pledge.addEventListener("click", () => {
-      modalSelect.forEach((modal) => {
-        modal.classList.add("doNotShow");
-      });
-      const modalDetailDiv = modalPlans.querySelector(
-        `[data-plan=${pledge.id}]`
-      );
-      const modalDetail = modalDetailDiv.querySelector(".modal-select");
-      if (pledge.checked) {
-        modalDetail.classList.remove("doNotShow");
-      }
-    })
+    pledge.addEventListener("click", openModalRewardSelected)
   );
 
   function showModal() {
@@ -46,22 +35,25 @@ export default function initModal() {
   }
 
   function openModalRewardSelected({ target }) {
-    const btnPlan = target.dataset.btnReward;
+    const element = target.dataset.id;
     showModal();
-    showModalDetails(btnPlan);
+    showModalDetails(element);
   }
 
-  function showModalDetails(element) {
-    const modalDetailDiv = modalPlans.querySelector(`[data-plan=${element}]`);
+  function showModalDetails(name) {
+    const modalDetailDiv = modalPlans.querySelector(`[data-plan=${name}]`);
     const modalDetail = modalDetailDiv.querySelector(".modal-select");
 
-    btnPledges.forEach((btn) => {
-      if (btn.id === element) {
-        btn.checked = true;
+    btnPledges.forEach((pledge) => {
+      if (pledge.dataset.id === name) {
+        pledge.checked = true;
         modalDetail.classList.remove("doNotShow");
       }
-      if (btn.checked && btn.id != element) {
+      if (pledge.checked && pledge.id != name) {
         modalDetail.classList.add("doNotShow");
+      }
+      if (pledge.checked) {
+        modalDetail.classList.remove("doNotShow");
       }
     });
   }

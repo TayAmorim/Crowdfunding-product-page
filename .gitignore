@@ -2,8 +2,10 @@
 #####################################################
 ## Please do not remove lines 5 and 6 - thanks! 🙂 ##
 #####################################################
+node_modules
 *.sketch
 *.fig
+*.vscode
 
 # Avoid accidental XD upload if you convert the design file
 ###############################################

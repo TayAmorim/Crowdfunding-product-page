@@ -3,8 +3,8 @@ import formattingPrice from "./formattingPrice.js";
 import initInfoPlans from "./plans-info.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
-const informationText = document.querySelector(".information-text");
-const rangeValue = document.querySelector(".remaining-value");
+const informationText = document.querySelector("[data-information='text']");
+const rangeValue = document.querySelector("[data-remaining='value']");
 
 export default async function initInfoProduct() {
   try {

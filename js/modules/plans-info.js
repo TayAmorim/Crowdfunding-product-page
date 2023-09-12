@@ -8,7 +8,7 @@ export default async function initInfoPlans() {
     const response = await api.get("/planos");
     const plans = response.data;
     for (let i = 0; i < plans.length; i++) {
-      const nomePlan = plans[i].nome.split(" ");
+      const nomePlan = plans[i].nome.toLowerCase().split(" ");
       for (let card of cardsPlan) {
         if (nomePlan.includes(card.dataset.plan)) {
           const span = card.querySelector(".amount");

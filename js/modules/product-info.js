@@ -43,12 +43,12 @@ export default async function initInfoProduct() {
     }
 
     function updateBrandColor(valueRange) {
-      const moderateCyan = "#3cb4ac";
-      const gray = "#ddd";
+      const MODERATECYAN = "#3cb4ac";
+      const GRAY = "#ddd";
       const percent =
         ((valueRange - rangeValue.min) / (rangeValue.max - rangeValue.min)) *
         100;
-      rangeValue.style.background = `linear-gradient(to right, ${moderateCyan} 0%, ${moderateCyan} ${percent}%, ${gray} ${percent}%, ${gray} 100%)`;
+      rangeValue.style.background = `linear-gradient(to right, ${MODERATECYAN} 0%, ${MODERATECYAN} ${percent}%, ${GRAY} ${percent}%, ${GRAY} 100%)`;
       rangeValue.setAttribute("value", percent * 1000);
     }
     initInfoPlans();

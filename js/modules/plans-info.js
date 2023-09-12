@@ -7,23 +7,24 @@ export default async function initInfoPlans() {
   try {
     const response = await api.get("/planos");
     const plans = response.data;
-    for (let i = 0; i < plans.length; i++) {
-      const nomePlan = plans[i].nome.toLowerCase().split(" ");
-      for (let card of cardsPlan) {
+
+    plans.forEach((plan) => {
+      const nomePlan = plan.nome.toLowerCase().split(" ");
+      cardsPlan.forEach((card) => {
         if (nomePlan.includes(card.dataset.plan)) {
           const span = card.querySelector(".amount");
           const spanPrice = card.querySelector(".price");
-          span.innerText = plans[i].quantidade;
+          span.innerText = plan.quantidade;
           if (spanPrice) {
-            const newPrice = getFormattingPrice(plans[i].valor_minimo);
+            const newPrice = getFormattingPrice(plan.valor_minimo);
             spanPrice.innerText = newPrice;
           }
-          if (!plans[i].status) {
+          if (!plan.status) {
             card.classList.add("disabled");
           }
         }
-      }
-    }
+      });
+    });
   } catch (error) {
     return console.log(error?.message);
   }

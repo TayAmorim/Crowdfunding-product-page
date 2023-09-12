@@ -1,5 +1,5 @@
 import { api } from "./api.js";
-import formattingPrice from "./formattingPrice.js";
+import getFormattingPrice from "./getFormattingPrice.js";
 import initInfoPlans from "./plans-info.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
@@ -23,8 +23,8 @@ export default async function initInfoProduct() {
     function setTitleInformations() {
       titlesInformation.forEach((title) => {
         if (title.dataset.informationTitle === "values") {
-          title.innerText = ` ${formattingPrice(valor_arrecadado)}`;
-          informationText.innerText = `${formattingPrice(meta_valor)}`;
+          title.innerText = ` ${getFormattingPrice(valor_arrecadado)}`;
+          informationText.innerText = `${getFormattingPrice(meta_valor)}`;
         } else if (title.dataset.informationTitle === "backed") {
           title.innerText = ` ${total_apoios}`;
         } else {

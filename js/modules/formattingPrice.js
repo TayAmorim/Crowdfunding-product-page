@@ -3,6 +3,5 @@ export default function formattingPrice(price) {
     style: "currency",
     currency: "BRL",
   });
-  const priceFinally = formatterValue.format(price / 100);
-  return priceFinally;
+  return formatterValue.format(price / 100);
 }

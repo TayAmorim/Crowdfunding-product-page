@@ -6,6 +6,7 @@ const rewardButtons = document.querySelectorAll(".btn");
 const buttonCloseModal = document.querySelector(".modal-img");
 const btnPledges = document.querySelectorAll(".btn-pledges");
 const modalSelect = document.querySelectorAll(".modal-select");
+let errorActive = false;
 
 export default function initModal() {
   supportButton.addEventListener("click", showModal);
@@ -63,7 +64,12 @@ export default function initModal() {
   function gettingSupportValue(element) {
     const inputDetails = element.querySelector(".input-pledge");
     const btnModalSelect = element.querySelector(".btn-modal-select");
-    const modalSelectElement = element.querySelector(".modal-select");
+
+    if (errorActive) {
+      const spanDelete = document.querySelector(".error");
+      spanDelete.remove();
+    }
+
     const nameInput = inputDetails.name.split("-")[1];
 
     btnModalSelect.addEventListener("click", gettingPlanId);
@@ -92,10 +98,12 @@ export default function initModal() {
         if (planId.valor_minimo > Number(valueFormattingInput)) {
           const span = document.createElement("span");
           span.innerText = "Erro: Valor menor do que o permitido";
-          span.classList.add("erro");
+          span.classList.add("error");
           element.appendChild(span);
+          errorActive = true;
           return;
         }
+
         await fulfillingPromise(planId.id, inputDetails.value);
       } catch (error) {
         console.log(error);
@@ -103,7 +111,11 @@ export default function initModal() {
     }
 
     async function fulfillingPromise(id, inputValue) {
-      console.log("oi");
+      console.log(id, inputValue);
+      if (errorActive) {
+        const spanDelete = document.querySelector(".error");
+        spanDelete.remove();
+      }
     }
   }
 }

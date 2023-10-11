@@ -110,11 +110,20 @@ export default function initModal() {
       }
     }
 
-    async function fulfillingPromise(id, inputValue) {
-      console.log(id, inputValue);
+    async function fulfillingPromise(id, valor) {
       if (errorActive) {
         const spanDelete = document.querySelector(".error");
         spanDelete.remove();
+      }
+      const valueFormatting = valor.replace(/\D/g, "");
+      const newPromise = {
+        id_plano: id,
+        valor: Number(valueFormatting),
+      };
+      try {
+        await api.post("apoio", newPromise);
+      } catch (error) {
+        console.log(error?.error);
       }
     }
   }

@@ -1,3 +1,5 @@
+import { api } from "./api.js";
+
 const modalPlans = document.querySelector("[data-modal='plans']");
 const supportButton = document.querySelector("[data-modal='btnSupport']");
 const rewardButtons = document.querySelectorAll(".btn");
@@ -61,8 +63,11 @@ export default function initModal() {
   function gettingSupportValue(element) {
     const inputDetails = element.querySelector(".input-pledge");
     const btnModalSelect = element.querySelector(".btn-modal-select");
+    const nameInput = inputDetails.name.split("-")[1];
 
+    btnModalSelect.addEventListener("click", gettingPlanId);
     inputDetails.addEventListener("input", formatCurrency);
+
     inputDetails.value = "R$";
 
     function formatCurrency({ target }) {
@@ -70,6 +75,20 @@ export default function initModal() {
       value = (value / 100).toFixed(2).replace(".", ",");
       value = "R$ " + value;
       target.value = value;
+    }
+    async function gettingPlanId() {
+      try {
+        const response = await api.get("/planos");
+        const plans = response.data;
+        const planId = plans.find(
+          (plan) =>
+            plan.nome.toLowerCase().includes(nameInput) ||
+            plan.nome == nameInput
+        )?.id;
+        console.log(planId);
+      } catch (error) {
+        console.log(error);
+      }
     }
   }
 }

@@ -91,8 +91,9 @@ export default function initModal() {
 
         if (planId.valor_minimo > Number(valueFormattingInput)) {
           const span = document.createElement("span");
-          span.innerText = "Valor menor do que o Permitido";
-          modalSelectElement.appendChild(span);
+          span.innerText = "Erro: Valor menor do que o permitido";
+          span.classList.add("erro");
+          element.appendChild(span);
           return;
         }
         await fulfillingPromise(planId.id, inputDetails.value);

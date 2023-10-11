@@ -13,9 +13,9 @@ export default async function initInfoPlans() {
         if (nomePlan.includes(card.dataset.plan)) {
           const span = card.querySelector(".amount");
           const spanPrice = card.querySelector(".price");
-          span.innerText = plans[i].quantidade;
+          span.innerText = plans[i]?.quantidade;
           if (spanPrice) {
-            const newPrice = formattingPrice(plans[i].valor_minimo);
+            const newPrice = formattingPrice(plans[i]?.valor_minimo);
             spanPrice.innerText = newPrice;
           }
           if (!plans[i].status) {

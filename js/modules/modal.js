@@ -63,6 +63,7 @@ export default function initModal() {
   function gettingSupportValue(element) {
     const inputDetails = element.querySelector(".input-pledge");
     const btnModalSelect = element.querySelector(".btn-modal-select");
+    const modalSelectElement = element.querySelector(".modal-select");
     const nameInput = inputDetails.name.split("-")[1];
 
     btnModalSelect.addEventListener("click", gettingPlanId);
@@ -76,19 +77,32 @@ export default function initModal() {
       value = "R$ " + value;
       target.value = value;
     }
+
     async function gettingPlanId() {
       try {
+        const valueFormattingInput = inputDetails.value.replace(/\D/g, "");
         const response = await api.get("/planos");
         const plans = response.data;
         const planId = plans.find(
           (plan) =>
             plan.nome.toLowerCase().includes(nameInput) ||
             plan.nome == nameInput
-        )?.id;
-        console.log(planId);
+        );
+
+        if (planId.valor_minimo > Number(valueFormattingInput)) {
+          const span = document.createElement("span");
+          span.innerText = "Valor menor do que o Permitido";
+          modalSelectElement.appendChild(span);
+          return;
+        }
+        await fulfillingPromise(planId.id, inputDetails.value);
       } catch (error) {
         console.log(error);
       }
+    }
+
+    async function fulfillingPromise(id, inputValue) {
+      console.log("oi");
     }
   }
 }

@@ -1,5 +1,5 @@
 import { api } from "./api.js";
-import formattingPrice from "./formattingPrice.js";
+import getFormattingPrice from "./getFormattingPrice.js";
 
 const cardsPlan = document.querySelectorAll("[data-plan]");
 
@@ -8,26 +8,23 @@ export default async function initInfoPlans() {
     const response = await api.get("/planos");
     const plans = response.data.filter((plan) => plan.nome !== "withoutReward");
 
-    for (let i = 0; i < plans.length; i++) {
-      const nomePlan = plans[i].nome.split(" ");
-      for (let card of cardsPlan) {
-        if (
-          nomePlan.includes(card.dataset.plan) &&
-          nomePlan !== "withoutReward"
-        ) {
+    plans.forEach((plan) => {
+      const nomePlan = plan.nome.toLowerCase().split(" ");
+      cardsPlan.forEach((card) => {
+        if (nomePlan.includes(card.dataset.plan)) {
           const span = card.querySelector(".amount");
           const spanPrice = card.querySelector(".price");
-          span.innerText = plans[i].quantidade;
+          span.innerText = plan.quantidade;
           if (spanPrice) {
-            const newPrice = formattingPrice(plans[i].valor_minimo);
+            const newPrice = getFormattingPrice(plan.valor_minimo);
             spanPrice.innerText = newPrice;
           }
-          if (!plans[i].status) {
+          if (!plan.status) {
             card.classList.add("disabled");
           }
         }
-      }
-    }
+      });
+    });
   } catch (error) {
     return console.log(error?.message);
   }

@@ -72,7 +72,9 @@
         <div class="cards-information">
           <div data-information="values" class="values-information">
             <h2 data-information-title="values">R$ 0</h2>
-            <p class="information-text">de R$ 200.000,00</p>
+            <p data-information="text" class="information-text">
+              de R$ 200.000,00
+            </p>
           </div>
           <div data-information="backed" class="backed-information">
             <h2 data-information-title="backed">0</h2>
@@ -83,7 +85,14 @@
             <p>Dias restantes</p>
           </div>
         </div>
-        <input class="remaining-value" type="range" min="0" step="0" disabled />
+        <input
+          data-remaining="value"
+          class="remaining-value"
+          type="range"
+          min="0"
+          step="0"
+          disabled
+        />
       </section>
       <section class="about">
         <h3>Sobre este projeto</h3>
@@ -101,10 +110,10 @@
             e Sticks USB para serem armazenados sob o suporte.
           </p>
         </div>
-        <div data-plan="Bamboo" class="plan-card">
+        <div data-plan="bamboo" class="plan-card">
           <div class="card-title">
             <h3>Bamboo Stand</h3>
-            <p>Pague <span class="price">0</span> ou mais</p>
+            <p>Pague <span class="price" data-price="price">0</span> ou mais</p>
           </div>
           <p class="text text-about">
             Obtenha um suporte ergonômico feito de bambu natural. Você nos
@@ -116,13 +125,15 @@
               <span class="amount">0</span>
               restantes
             </p>
-            <button data-id="Bamboo" class="btn">Selecione Recompensa</button>
+            <button data-id="bamboo" data-button="reward" class="btn">
+              Selecione Recompensa
+            </button>
           </div>
         </div>
-        <div data-plan="Black" class="plan-card">
+        <div data-plan="black" class="plan-card">
           <div class="card-title">
             <h3>Black Edition Stand</h3>
-            <p>Pague <span class="price">0</span> ou mais</p>
+            <p>Pague <span class="price" data-price="price">0</span> ou mais</p>
           </div>
           <p class="text text-about">
             Suporte para computador Black Special Edition e um agradecimento
@@ -134,13 +145,15 @@
               <span class="amount">0</span>
               restantes
             </p>
-            <button data-id="Black" class="btn">Selecione Recompensa</button>
+            <button data-id="black" data-button="reward" class="btn">
+              Selecione Recompensa
+            </button>
           </div>
         </div>
-        <div data-plan="Mahogany" class="plan-card">
+        <div data-plan="mahogany" class="plan-card">
           <div class="card-title">
             <h3>Mahogany Special Edition</h3>
-            <p>Pague <span class="price">0</span> ou mais</p>
+            <p>Pague <span class="price" data-price="price">0</span> ou mais</p>
           </div>
           <p class="text text-about">
             Você ganha dois estandes de mogno da edição especial, uma camiseta
@@ -152,7 +165,7 @@
               <span class="amount">0</span>
               restantes
             </p>
-            <button dat-id="Mahogany" class="btn">Fora de estoque</button>
+            <button dat-id="mahogany" class="btn">Fora de estoque</button>
           </div>
         </div>
       </section>
@@ -160,7 +173,8 @@
     <section data-modal="plans" class="wrapper-modal doNotShow">
       <div class="modal">
         <img
-          class="modal-img"
+          data-img="closed-modal"
+          class="modal-closeImg"
           src="./images/icon-close-modal.svg"
           alt="icon-close-modal"
         />
@@ -178,6 +192,7 @@
                 <div class="radio">
                   <label>
                     <input
+                      data-button="pledges"
                       data-id="withoutReward"
                       type="radio"
                       class="btn-pledges"
@@ -195,10 +210,7 @@
                 </p>
               </div>
             </div>
-            <div
-              data-modal-select="withoutReward"
-              class="modal-select doNotShow"
-            >
+            <div data-detail="modal" class="modal-select doNotShow">
               <p>Insira seu apoio</p>
               <div class="group-select-button">
                 <input
@@ -212,7 +224,7 @@
               </div>
             </div>
           </div>
-          <div data-plan="Bamboo" class="wrapper-card">
+          <div data-plan="bamboo" class="wrapper-card">
             <div class="card-modal">
               <div class="card-info-modal">
                 <div class="card-support">
@@ -220,7 +232,8 @@
                     <div class="radio">
                       <label>
                         <input
-                          data-id="Bamboo"
+                          data-button="pledges"
+                          data-id="bamboo"
                           type="radio"
                           class="btn-pledges"
                           name="pledges"
@@ -230,7 +243,8 @@
                     <h4>Bamboo Stand</h4>
                   </div>
                   <p class="pledge">
-                    Pague <span class="price">0</span> ou mais
+                    Pague <span class="price" data-price="price">0</span> ou
+                    mais
                   </p>
                   <div class="card-days-remaining">
                     <span class="amount">0</span>
@@ -244,7 +258,7 @@
                 </p>
               </div>
             </div>
-            <div class="modal-select doNotShow">
+            <div data-detail="modal" class="modal-select doNotShow">
               <p>Insira seu apoio</p>
               <div class="group-select-button">
                 <input
@@ -257,7 +271,7 @@
               </div>
             </div>
           </div>
-          <div data-plan="Black" class="wrapper-card">
+          <div data-plan="black" class="wrapper-card">
             <div class="card-modal">
               <div class="card-info-modal">
                 <div class="card-support">
@@ -265,7 +279,8 @@
                     <div class="radio">
                       <label>
                         <input
-                          data-id="Black"
+                          data-button="pledges"
+                          data-id="black"
                           type="radio"
                           class="btn-pledges"
                           name="pledges"
@@ -275,7 +290,8 @@
                     <h4>Black Edition Stand</h4>
                   </div>
                   <p class="pledge">
-                    Pague <span class="price">0</span> ou mais
+                    Pague <span class="price" data-price="price">0</span> ou
+                    mais
                   </p>
                   <div class="card-days-remaining">
                     <span class="amount">0</span>
@@ -289,7 +305,7 @@
                 </p>
               </div>
             </div>
-            <div class="modal-select doNotShow">
+            <div data-detail="modal" class="modal-select doNotShow">
               <p>Insira seu apoio</p>
               <div class="group-select-button">
                 <input
@@ -302,7 +318,7 @@
               </div>
             </div>
           </div>
-          <div data-plan="Mahogany" class="wrapper-card">
+          <div data-plan="mahogany" class="wrapper-card">
             <div class="card-modal disabled">
               <div class="card-info-modal">
                 <div class="card-support">
@@ -310,7 +326,8 @@
                     <div class="radio">
                       <label>
                         <input
-                          dat-id="Mahogany"
+                          data-button="pledges"
+                          dat-id="mahogany"
                           type="radio"
                           class="btn-pledges"
                           name="pledges"
@@ -320,7 +337,8 @@
                     <h4>Mahogany Special Edition</h4>
                   </div>
                   <p class="pledge">
-                    Pague <span class="price">0</span> ou mais
+                    Pague <span class="price" data-price="price">0</span> ou
+                    mais
                   </p>
                   <div class="card-days-remaining">
                     <span class="amount">0</span>
@@ -334,7 +352,7 @@
                 </p>
               </div>
             </div>
-            <div class="modal-select doNotShow">
+            <div data-detail="modal" class="modal-select doNotShow">
               <p>Insira seu apoio</p>
               <div class="group-select-button">
                 <input

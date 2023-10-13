@@ -4,10 +4,10 @@ import initInfoProduct from "./product-info.js";
 
 const modalPlans = document.querySelector("[data-modal='plans']");
 const supportButton = document.querySelector("[data-modal='btnSupport']");
-const rewardButtons = document.querySelectorAll(".btn");
-const buttonCloseModal = document.querySelector(".modal-img");
-const btnPledges = document.querySelectorAll(".btn-pledges");
-const modalSelect = document.querySelectorAll(".modal-select");
+const rewardButtons = document.querySelectorAll("[data-button='reward']");
+const buttonCloseModal = document.querySelector("[data-img='closed-modal']");
+const btnPledges = document.querySelectorAll("[data-button='pledges']");
+const modalSelect = document.querySelectorAll("[data-detail='modal']");
 const modalSuccess = document.querySelector("[data-success]");
 const btnClosedModalSuccess = modalSuccess.querySelector(".btn-pledgeComplet");
 let errorActive = false;
@@ -53,7 +53,8 @@ export default function initModal() {
 
   function showModalDetails(name) {
     const modalDetailDiv = modalPlans.querySelector(`[data-plan=${name}]`);
-    const modalDetail = modalDetailDiv.querySelector(".modal-select");
+    const modalDetail = modalDetailDiv.querySelector("[data-detail='modal']");
+
     btnPledges.forEach((pledge) => {
       if (pledge.dataset.id === name) {
         pledge.checked = true;

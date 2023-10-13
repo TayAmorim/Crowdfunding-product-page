@@ -1,10 +1,10 @@
 import { api } from "./api.js";
-import formattingPrice from "./formattingPrice.js";
+import getFormattingPrice from "./getFormattingPrice.js";
 import initInfoPlans from "./plans-info.js";
 
 const titlesInformation = document.querySelectorAll("[data-information-title]");
-const informationText = document.querySelector(".information-text");
-const rangeValue = document.querySelector(".remaining-value");
+const informationText = document.querySelector("[data-information='text']");
+const rangeValue = document.querySelector("[data-remaining='value']");
 
 export default async function initInfoProduct() {
   try {
@@ -23,8 +23,8 @@ export default async function initInfoProduct() {
     function setTitleInformations() {
       titlesInformation.forEach((title) => {
         if (title.dataset.informationTitle === "values") {
-          title.innerText = ` ${formattingPrice(valor_arrecadado)}`;
-          informationText.innerText = `${formattingPrice(meta_valor)}`;
+          title.innerText = ` ${getFormattingPrice(valor_arrecadado)}`;
+          informationText.innerText = `${getFormattingPrice(meta_valor)}`;
         } else if (title.dataset.informationTitle === "backed") {
           title.innerText = ` ${total_apoios}`;
         } else {
@@ -43,12 +43,12 @@ export default async function initInfoProduct() {
     }
 
     function updateBrandColor(valueRange) {
-      const moderateCyan = "#3cb4ac";
-      const gray = "#ddd";
+      const MODERATECYAN = "#3cb4ac";
+      const GRAY = "#ddd";
       const percent =
         ((valueRange - rangeValue.min) / (rangeValue.max - rangeValue.min)) *
         100;
-      rangeValue.style.background = `linear-gradient(to right, ${moderateCyan} 0%, ${moderateCyan} ${percent}%, ${gray} ${percent}%, ${gray} 100%)`;
+      rangeValue.style.background = `linear-gradient(to right, ${MODERATECYAN} 0%, ${MODERATECYAN} ${percent}%, ${GRAY} ${percent}%, ${GRAY} 100%)`;
       rangeValue.setAttribute("value", percent * 1000);
     }
     initInfoPlans();

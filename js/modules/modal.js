@@ -9,6 +9,7 @@ const buttonCloseModal = document.querySelector(".modal-img");
 const btnPledges = document.querySelectorAll(".btn-pledges");
 const modalSelect = document.querySelectorAll(".modal-select");
 const modalSuccess = document.querySelector("[data-success]");
+const btnClosedModalSuccess = modalSuccess.querySelector(".btn-pledgeComplet");
 let errorActive = false;
 
 export default function initModal() {
@@ -21,6 +22,10 @@ export default function initModal() {
 
   btnPledges.forEach((pledge) =>
     pledge.addEventListener("click", openModalRewardSelected)
+  );
+
+  btnClosedModalSuccess.addEventListener("click", () =>
+    modalSuccess.classList.add("doNotShow")
   );
 
   function showModal() {

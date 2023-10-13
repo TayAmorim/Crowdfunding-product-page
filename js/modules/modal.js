@@ -8,6 +8,7 @@ const rewardButtons = document.querySelectorAll(".btn");
 const buttonCloseModal = document.querySelector(".modal-img");
 const btnPledges = document.querySelectorAll(".btn-pledges");
 const modalSelect = document.querySelectorAll(".modal-select");
+const modalSuccess = document.querySelector("[data-success]");
 let errorActive = false;
 
 export default function initModal() {
@@ -63,7 +64,7 @@ export default function initModal() {
     gettingSupportValue(modalDetail);
   }
 
-  function gettingSupportValue(element) {
+  async function gettingSupportValue(element) {
     const inputDetails = element.querySelector(".input-pledge");
     const btnModalSelect = element.querySelector(".btn-modal-select");
 
@@ -72,10 +73,10 @@ export default function initModal() {
       spanDelete.remove();
     }
 
-    const nameInput = inputDetails.name.split("-")[1];
-
-    btnModalSelect.addEventListener("click", gettingPlanId);
     inputDetails.addEventListener("input", formatCurrency);
+    btnModalSelect.addEventListener("click", () =>
+      gettingPlanId(inputDetails, element)
+    );
 
     inputDetails.value = "R$";
 
@@ -85,51 +86,52 @@ export default function initModal() {
       value = "R$ " + value;
       target.value = value;
     }
+  }
 
-    async function gettingPlanId() {
-      try {
-        const valueFormattingInput = inputDetails.value.replace(/\D/g, "");
-        const response = await api.get("/planos");
-        const plans = response.data;
-        const planId = plans.find(
-          (plan) =>
-            plan.nome.toLowerCase().includes(nameInput) ||
-            plan.nome == nameInput
-        );
+  async function gettingPlanId(inputDetails, element) {
+    const nameInput = inputDetails.name.split("-")[1];
+    try {
+      const valueFormattingInput = inputDetails.value.replace(/\D/g, "");
+      const response = await api.get("/planos");
+      const plans = response.data;
+      const planId = plans.find(
+        (plan) =>
+          plan.nome.toLowerCase().includes(nameInput) || plan.nome == nameInput
+      );
 
-        if (planId.valor_minimo > Number(valueFormattingInput)) {
-          const span = document.createElement("span");
-          span.innerText = "Erro: Valor menor do que o permitido";
-          span.classList.add("error");
-          element.appendChild(span);
-          errorActive = true;
-          return;
-        }
-
-        await fulfillingPromise(planId.id, inputDetails.value);
-      } catch (error) {
-        console.log(error);
+      if (planId.valor_minimo > Number(valueFormattingInput)) {
+        const span = document.createElement("span");
+        span.innerText = "Erro: Valor menor do que o permitido";
+        span.classList.add("error");
+        element.appendChild(span);
+        errorActive = true;
+        return;
       }
+
+      await fulfillingPromise(planId.id, inputDetails.value);
+    } catch (error) {
+      console.log(error);
     }
+  }
 
-    async function fulfillingPromise(id, valor) {
-      if (errorActive) {
-        const spanDelete = document.querySelector(".error");
-        spanDelete.remove();
-      }
-      const valueFormatting = valor.replace(/\D/g, "");
-      const newPromise = {
-        id_plano: id,
-        valor: Number(valueFormatting),
-      };
-      try {
-        await api.post("apoio", newPromise);
-        initInfoPlans();
-        initInfoProduct();
-        doNotShowModal();
-      } catch (error) {
-        console.log(error?.error);
-      }
+  async function fulfillingPromise(id, valor) {
+    if (errorActive) {
+      const spanDelete = document.querySelector(".error");
+      spanDelete.remove();
+    }
+    const valueFormatting = valor.replace(/\D/g, "");
+    const newPromise = {
+      id_plano: id,
+      valor: Number(valueFormatting),
+    };
+    try {
+      await api.post("apoio", newPromise);
+      initInfoPlans();
+      initInfoProduct();
+      doNotShowModal();
+      modalSuccess.classList.remove("doNotShow");
+    } catch (error) {
+      console.log(error?.error);
     }
   }
 }

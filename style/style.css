@@ -89,17 +89,20 @@ body {
 }
 
 .btn,
-.btn-tag {
+.btn-tag,
+.btn-pledgeComplet {
   padding: 20px 40px;
   border: none;
   border-radius: 30px;
   background: var(--moderate-cyan);
   color: white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .btn:hover,
-.btn-tag:hover {
+.btn-tag:hover,
+.btn-pledgeComplet:hover {
   background-color: var(--dark-cyan);
   cursor: pointer;
 }
@@ -431,6 +434,7 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--dark-cyan);
   color: var(--white);
   transition: 0.2s;
+  cursor: pointer;
 }
 
 .doNotShow {
@@ -442,7 +446,7 @@ input[type="range"]::-webkit-slider-thumb {
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  margin: auto;
+  margin: 20% auto;
   background: var(--white);
   text-align: center;
   padding: 40px;

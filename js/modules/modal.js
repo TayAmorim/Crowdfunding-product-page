@@ -1,4 +1,6 @@
 import { api } from "./api.js";
+import initInfoPlans from "./plans-info.js";
+import initInfoProduct from "./product-info.js";
 
 const modalPlans = document.querySelector("[data-modal='plans']");
 const supportButton = document.querySelector("[data-modal='btnSupport']");
@@ -122,6 +124,9 @@ export default function initModal() {
       };
       try {
         await api.post("apoio", newPromise);
+        initInfoPlans();
+        initInfoProduct();
+        doNotShowModal();
       } catch (error) {
         console.log(error?.error);
       }

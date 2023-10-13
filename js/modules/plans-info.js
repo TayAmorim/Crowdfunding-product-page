@@ -6,16 +6,20 @@ const cardsPlan = document.querySelectorAll("[data-plan]");
 export default async function initInfoPlans() {
   try {
     const response = await api.get("/planos");
-    const plans = response.data;
+    const plans = response.data.filter((plan) => plan.nome !== "withoutReward");
+
     for (let i = 0; i < plans.length; i++) {
       const nomePlan = plans[i].nome.split(" ");
       for (let card of cardsPlan) {
-        if (nomePlan.includes(card.dataset.plan)) {
+        if (
+          nomePlan.includes(card.dataset.plan) &&
+          nomePlan !== "withoutReward"
+        ) {
           const span = card.querySelector(".amount");
           const spanPrice = card.querySelector(".price");
-          span.innerText = plans[i]?.quantidade;
+          span.innerText = plans[i].quantidade;
           if (spanPrice) {
-            const newPrice = formattingPrice(plans[i]?.valor_minimo);
+            const newPrice = formattingPrice(plans[i].valor_minimo);
             spanPrice.innerText = newPrice;
           }
           if (!plans[i].status) {

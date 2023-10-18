@@ -98,8 +98,8 @@ export default function initModal() {
     const nameInput = inputDetails.name.split("-")[1];
     try {
       const valueFormattingInput = inputDetails.value.replace(/\D/g, "");
-      const response = await api.get("/planos");
-      const plans = response.data;
+      const { data } = await api.get("/planos");
+      const plans = data;
       const planId = plans.find(
         (plan) =>
           plan.nome.toLowerCase().includes(nameInput) || plan.nome == nameInput

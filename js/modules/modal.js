@@ -74,17 +74,13 @@ export default function initModal() {
     const inputDetails = element.querySelector(".input-pledge");
     const btnModalSelect = element.querySelector(".btn-modal-select");
 
-    if (errorActive) {
-      const spanDelete = document.querySelector(".error");
-      spanDelete.remove();
-    }
+    clearErrorMessage();
 
+    inputDetails.value = "R$ ";
     inputDetails.addEventListener("input", formatCurrency);
     btnModalSelect.addEventListener("click", () =>
       gettingPlanId(inputDetails, element)
     );
-
-    inputDetails.value = "R$";
 
     function formatCurrency({ target }) {
       let value = target.value.replace(/\D/g, "");
@@ -121,14 +117,10 @@ export default function initModal() {
   }
 
   async function fulfillingPromise(id, valor) {
-    if (errorActive) {
-      const spanDelete = document.querySelector(".error");
-      spanDelete.remove();
-    }
-    const valueFormatting = valor.replace(/\D/g, "");
+    clearErrorMessage();
     const newPromise = {
       id_plano: id,
-      valor: Number(valueFormatting),
+      valor: convertToNumber(valor),
     };
     try {
       await api.post("apoio", newPromise);
@@ -138,6 +130,18 @@ export default function initModal() {
       modalSuccess.classList.remove("doNotShow");
     } catch (error) {
       console.log(error?.error);
+    }
+  }
+
+  function convertToNumber(data) {
+    const valueFormatting = data.replace(/\D/g, "");
+    return Number(valueFormatting);
+  }
+
+  function clearErrorMessage() {
+    if (errorActive) {
+      const spanDelete = document.querySelector(".error");
+      spanDelete.remove();
     }
   }
 }

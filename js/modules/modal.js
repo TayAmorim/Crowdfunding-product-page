@@ -93,7 +93,6 @@ export default function initModal() {
   async function gettingPlanId(inputDetails, element) {
     const nameInput = inputDetails.name.split("-")[1];
     try {
-      const valueFormattingInput = inputDetails.value.replace(/\D/g, "");
       const { data } = await api.get("/planos");
       const plans = data;
       const planId = plans.find(
@@ -101,7 +100,7 @@ export default function initModal() {
           plan.nome.toLowerCase().includes(nameInput) || plan.nome == nameInput
       );
 
-      if (planId.valor_minimo > Number(valueFormattingInput)) {
+      if (planId.valor_minimo > convertToNumber(inputDetails.value)) {
         const span = document.createElement("span");
         span.innerText = "Erro: Valor menor do que o permitido";
         span.classList.add("error");

@@ -1,4 +1,5 @@
 import { api } from "./api.js";
+import formatCurrency from "./formatCurrency.js";
 import initInfoPlans from "./plans-info.js";
 import initInfoProduct from "./product-info.js";
 
@@ -77,18 +78,21 @@ export default function initModal() {
     clearErrorMessage();
 
     inputDetails.value = "R$ ";
-    inputDetails.addEventListener("input", formatCurrency);
+    inputDetails.addEventListener(
+      "input",
+      ({ target }) => (target.value = formatCurrency({ target }))
+    );
     btnModalSelect.addEventListener("click", () =>
       gettingPlanId(inputDetails, element)
     );
-
-    function formatCurrency({ target }) {
-      let value = target.value.replace(/\D/g, "");
-      value = (value / 100).toFixed(2).replace(".", ",");
-      value = "R$ " + value;
-      target.value = value;
-    }
   }
+
+  /*   function formatCurrency({ target }) {
+    let value = target.value.replace(/\D/g, "");
+    value = (value / 100).toFixed(2).replace(".", ",");
+    value = "R$ " + value;
+    target.value = value;
+  } */
 
   async function gettingPlanId(inputDetails, element) {
     const nameInput = inputDetails.name.split("-")[1];

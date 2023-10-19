@@ -21,9 +21,13 @@ export default async function initInfoProduct() {
       return dayRemaining;
     }
 
+
     if (!status) {
       supportButton.classList.add("disabled");
       rewardButtons.forEach((button) => button.classList.add("disabled"));
+    } else {
+      supportButton.classList.remove("disabled");
+      rewardButtons.forEach((button) => button.classList.remove("disabled"));
     }
 
     function setTitleInformations() {

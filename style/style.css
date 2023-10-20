@@ -420,7 +420,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .input-pledge {
-  max-width: 90px;
+  max-width: 100px;
   border: 1px solid var(--dark-cyan);
   border-radius: 20px;
   padding: 10px 15px;
@@ -440,7 +440,6 @@ input[type="range"]::-webkit-slider-thumb {
 .doNotShow {
   display: none !important;
   visibility: hidden;
-
 }
 
 .pledge-completed {
@@ -508,9 +507,7 @@ input[type="range"]::-webkit-slider-thumb {
   }
 
   [data-button] {
-    width: 20px;
-    height: 3px;
-    background: var(--white);
+    width: 200px;
   }
 
   [data-menu="button"].active {

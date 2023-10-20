@@ -21,7 +21,6 @@ export default async function initInfoProduct() {
       return dayRemaining;
     }
 
-
     if (!status) {
       supportButton.classList.add("disabled");
       rewardButtons.forEach((button) => button.classList.add("disabled"));

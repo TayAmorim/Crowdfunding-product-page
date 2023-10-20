@@ -503,8 +503,12 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
   }
 
-  [data-button] {
-    width: 200px;
+  [data-button="trace-top"],
+  [data-button="trace-center"],
+  [data-button="trace-bottom"] {
+    width: 20px;
+    height: 2px;
+    background: var(--white);
   }
 
   [data-menu="button"].active {

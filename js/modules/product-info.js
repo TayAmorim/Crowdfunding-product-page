@@ -13,13 +13,12 @@ export default async function initInfoProduct() {
     const { meta_valor, valor_arrecadado, total_apoios, data_limite, status } =
       response.data || {};
 
-    function nextDays() {
-      const dayRemaining = dateFns.differenceInCalendarDays(
-        new Date(data_limite),
-        new Date()
-      );
-      return dayRemaining;
-    }
+    function calculateMissingDays (date) {
+        const currentDate = new Date();
+        const dateProduct = new Date(date)
+        const missingDays = Math.ceil((dateProduct - currentDate) / (1000 * 60 * 60 * 24))
+        return missingDays
+      }
 
     if (!status) {
       supportButton.classList.add("disabled");
@@ -37,7 +36,7 @@ export default async function initInfoProduct() {
         } else if (title.dataset.informationTitle === "backed") {
           title.innerText = ` ${total_apoios}`;
         } else {
-          title.innerText = ` ${nextDays()}`;
+          title.innerText = ` ${calculateMissingDays(data_limite)}`;
         }
       });
     }

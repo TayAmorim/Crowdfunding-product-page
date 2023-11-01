@@ -1,15 +1,16 @@
 import { api } from "./api.js";
 import getFormattingPrice from "./getFormattingPrice.js";
 import initInfoPlans from "./plans-info.js";
-
+const supportButton = document.querySelector("[data-modal='btnSupport']");
 const titlesInformation = document.querySelectorAll("[data-information-title]");
 const informationText = document.querySelector("[data-information='text']");
 const rangeValue = document.querySelector("[data-remaining='value']");
+const rewardButtons = document.querySelectorAll("[data-button='reward']");
 
 export default async function initInfoProduct() {
   try {
     const response = await api.get(`/produto/1`);
-    const { meta_valor, valor_arrecadado, total_apoios, data_limite } =
+    const { meta_valor, valor_arrecadado, total_apoios, data_limite, status } =
       response.data || {};
 
     function nextDays() {
@@ -18,6 +19,14 @@ export default async function initInfoProduct() {
         new Date()
       );
       return dayRemaining;
+    }
+
+    if (!status) {
+      supportButton.classList.add("disabled");
+      rewardButtons.forEach((button) => button.classList.add("disabled"));
+    } else {
+      supportButton.classList.remove("disabled");
+      rewardButtons.forEach((button) => button.classList.remove("disabled"));
     }
 
     function setTitleInformations() {

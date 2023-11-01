@@ -6,7 +6,7 @@ const cardsPlan = document.querySelectorAll("[data-plan]");
 export default async function initInfoPlans() {
   try {
     const response = await api.get("/planos");
-    const plans = response.data;
+    const plans = response.data.filter((plan) => plan.nome !== "withoutReward");
 
     plans.forEach((plan) => {
       const nomePlan = plan.nome.toLowerCase().split(" ");
